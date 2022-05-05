@@ -1,0 +1,93 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<!-- start session -->
+<div class="container shadow mt-5">
+  <div class="row para1">
+    <div class="col-xl-8">
+      <div class="container-fluid py-5 text-white">
+        <h1 class="display-5">Welcome to our Online repo</h1>
+        <p class="fs-4 lead">This website seeks to help students and the entire computer engineering department on how to access students report online without any stress</p>
+      </div>
+    </div>
+    <div class="col-xl-4 py-3">
+      <div class="card shadow">
+        <div class="card-header">
+          Search Collection
+        </div>
+        <div class="card-body">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3 py-5">
+  <div class="card shadow py-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="card shadow" style="width: 18rem;">
+                <img class="card-img-top" src="{% static '/media/images/mime.png' %}" alt=""><br>
+                <div class="card-body">
+                  <p class="card-text">This work is about a programming language that was used in the past but still useful in modern day.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="card shadow" style="width: 18rem;">
+                <img class="card-img-top" src="{% static '/media/images/mime.png' %}" alt=""><br>
+                <div class="card-body">
+
+                  <p class="card-text">This talks about how the university of Ghana,computer engineering students have been faring in the department</p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card shadow">
+            <div class="card-header">
+              Collections
+            </div>
+            <div class="card-body">
+              {% for files in files %}
+              <ul class="list-group list-group-flush">
+               Name: {{ files.firstName }}  {{ files.lastName }} <br>
+               Project Title: {{ files.title }} <br>
+               Department:  {{ files.department }} <br><br>
+               <span>
+                 <a class="btn btn-primary btn-sm" target="_blank" href=" {{ files.Fileupload.url }}">Download PDF</a>
+                 {% if user.is_staff %}    
+                  <a class="btn btn-danger btn-sm" href="{% url 'file-delete' files.pk %}">Delete</a>
+                  {% endif %}
+               </span>
+              </ul>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid text-center bg-primary text-white">
+  <div class="row pt-4">
+    <p>Made with 💓 by Group Three(3)</p>
+    <p>@Yeyung_ @Emmanuella_ @Nathan_ @Dr.Macbeth_</p>
+  </div>
+</div>
+
+<!-- end session -->
+
+{% endblock %}

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+.login-body{
+    background-image: url(../media/images/pexels-pixabay-267885.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    
+}
+
+.para1{
+    background-image: url(../media/images/pexels-anthony-158834.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+.sign{
+    background-image: url(../media/images/pexels-pixabay-267885.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+
+
+
